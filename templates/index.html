@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/all.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-bar">
+            <div class="container">
+
+                <h1 class="logo lg-heading text-light"><span>Q</span>ueen</h1>
+                <div class="nav-items">
+                    <ul>
+                        <li class="nav-item"><a href="#">Home</a></li>
+                        <li class="nav-item"><a href="#">About</a></li>
+                        <li class="nav-item"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="header-content">
+            <h1 class="lg-heading main-heading text-light">Welcome to <span class="text-orange">place</span> </h1>
+            <h1 class="lg-heading main-heading text-light se_heading"> Queen</h1>
+            <a href="#explor-places" class="btn">Explore More</a>
+        </div>
+        <div class="video-container">
+            <video src="/static/assets/robot_chess.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="about">
+                <h1>
+                    <span>A</span>
+                    <span>b</span>
+                    <span>o</span>
+                    <span>u</span>
+                    <span>t</span>
+                </h1>
+                <p>Computer automatically place the Queen in such
+                    a way that upcoming Queen can't be placed in the
+                    same row, column and diagnol of
+                    the other Queen already present in table </p>
+                <div class="video-container">
+                    <video src="/static/assets/chess.mp4" id="video-slider" loop autoplay muted></video>
+                </div>
+            </div>
+            <div class="form">
+                <h1>Enter No. Of Queen</h1>
+                <form action="">
+                    <div class="inpt">
+                        <input type="number" placeholder="Enter No> 3"><span><i class="fas form-btn btn fa-chevron-right"></i></span>
+                    </div>
+                </form>
+                <span>
+                    🐱‍🚀🐱‍🚀🐱‍🚀🐱‍🚀
+                </span>
+
+                <div class="table_container flex">
+                    <table>
+                        {%for ro in range(1,no_of_queen+1)%}
+                        <tr>
+                            {%for co in range(1,no_of_queen+1)%}
+                            {%if (ro,co) in indexes%}
+                            <td class="cl">🐱‍🚀</td>
+                            {% else %}
+                            <td>🟥</td>
+                            {% endif %}
+
+
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2019 All rights reserved | made by
+                <a href="www.youtube.com/c/dailytuition" target="_black">Daily Tuition <i class="fab fa-youtube"></i>
+                    Channel</a>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
