@@ -71,6 +71,5 @@ q.addQueen()
 def table():
     return render_template("index.html",no_of_queen = q.no_of_queen,indexes = s.show())
 
-
 if __name__ == '__main__':
     app.run(debug =True)
