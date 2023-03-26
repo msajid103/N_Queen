@@ -1,6 +1,5 @@
 
-@import url(/static/all.css);
-@import url(/static/fonts.css);
+@import url(/static/css/all.css);
 
 * {
     margin: 0;
@@ -161,7 +160,7 @@ h3 {
 .header-content {
     text-align: center;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -193,7 +192,7 @@ section .container{
     background: black;
 
 }
-section .container div{
+section.about-us .container div{
     padding: 10rem 6rem;
    width: 50%;
     color: #fff;
@@ -218,7 +217,6 @@ section .container div{
  
  
 .container .video-container video{
-    /* position: relative;    */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -227,21 +225,37 @@ section .container div{
 /* ___________x__________ About ____________x__________ */
 
 /* ____________________form Styling _______________________________ */
-
-.form{
-    position: relative;
-    max-width: 50%;
-    background: black;
-    color: #f4f4f4;
-   
+.try .container{   
+        display: flex;
+        border: none;
+        max-height: 100vh;       
+        align-content: space-between;
+        justify-content: flex-start;
+        flex-direction: row;
 }
+.form{
+    color: #f4f4f4;   
+}
+.try .container span{
+    font-size: 2.5rem;
+}
+
+.try .container  .form-button{
+    display: flex;
+    margin: 1rem 0;
+}
+.try .container  .form-button .add{
+    padding: 0 2.5rem;
+}
+
 .table_container {  
     border: 4px solid #555; 
     flex-direction: column;
     padding: 1rem;
-    max-height: 90vh;
+    max-width: fit-content;
+    height: auto;
+    margin: 3rem 0 0 2rem;
     overflow:scroll;
-    text-align: -webkit-center;
 }
 
 table tr td {
@@ -267,7 +281,7 @@ form{
 }
 
 .form  .form-btn{
-    padding: 0;
+    padding: 11px;
     display: block;
     font-size: 2rem;
     padding-top: 1rem;

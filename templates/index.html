@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/all.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="nav-bar">
             <div class="container">
-
                 <h1 class="logo lg-heading text-light"><span>Q</span>ueen</h1>
                 <div class="nav-items">
                     <ul>
                         <li class="nav-item"><a href="#">Home</a></li>
-                        <li class="nav-item"><a href="#">About</a></li>
+                        <li class="nav-item"><a href="#about">About</a></li>
                         <li class="nav-item"><a href="#">Contact</a></li>
                     </ul>
                 </div>
@@ -28,13 +26,13 @@
         <div class="header-content">
             <h1 class="lg-heading main-heading text-light">Welcome to <span class="text-orange">place</span> </h1>
             <h1 class="lg-heading main-heading text-light se_heading"> Queen</h1>
-            <a href="#explor-places" class="btn">Explore More</a>
+            <a href="/g" type="button"  class="btn">Explore More</a>
         </div>
         <div class="video-container">
             <video src="/static/assets/robot_chess.mp4" id="video-slider" loop autoplay muted></video>
         </div>
     </header>
-    <section>
+    <section class="about-us" id="about">
         <div class="container">
             <div class="about">
                 <h1>
@@ -47,49 +45,17 @@
                 <p>Computer automatically place the Queen in such
                     a way that upcoming Queen can't be placed in the
                     same row, column and diagnol of
-                    the Queen already present in table. We are working on it on next version. You can try it below how it work</p>
-                    <button class="btn about-btn">Try</button>
+                    the Queen already present in table. We are working on it on next version. You can try it below how
+                    it work</p>
+               <a class="btn about-btn" href="/g" type="button" >Try</a>
             </div>
             <div class="video-container">
                 <video src="/static/assets/chess.mp4" id="video-slider" loop autoplay muted></video>
             </div>
         </div>
-      </section>
-      <!-- <section>
-            <div class="form">
-                <h1>Enter No. Of Queen</h1>
-                <form action="">
-                    <div class="inpt">
-                        <input type="number" placeholder="Enter No> 3"><span><i
-                                class="fas form-btn btn fa-chevron-right"></i></span>
-                    </div>
-                </form>
-                <span>
-                    🐱‍🚀🐱‍🚀🐱‍🚀🐱‍🚀
-                </span>
-
-                <div class="table_container flex">
-                    <table>
-                        {%for ro in range(1,no_of_queen+1)%}
-                        <tr>
-                            {%for co in range(1,no_of_queen+1)%}
-                            {%if (ro,co) in indexes%}
-                            <td class="cl">🐱‍🚀</td>
-                            {% else %}
-                            <td>🟥</td>
-                            {% endif %}
-
-
-                            {% endfor %}
-                        </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            </div>
-
-       
     </section>
-    <footer class="footer">
+
+ <!-- <footer class="footer">
         <div class="container">
             <div class="about-us" data-aos="fade-right" data-aos-delay="200">
                 <h2>About us</h2>
@@ -137,7 +103,7 @@
         <div class="move-up">
             <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
         </div>
-    </footer> -->
+    </footer>  -->
 
 </body>
 

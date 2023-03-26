@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template, request, redirect
 app = Flask(__name__)
 class Node:
     def __init__(self,row,column):
@@ -8,6 +8,8 @@ class Node:
 class Stack:
     def __init__(self):
         self.head = None
+        self.indexes = []
+
     def push(self,row,column):
         new = Node(row,column)      
         new.next = self.head
@@ -23,28 +25,25 @@ class Stack:
         return False
     def show(self):
         head = self.head
-        indexes = []
+        self.indexes.clear()
         while head != None:
-            indexes.append((head.row,head.column))
+            self.indexes.append((head.row,head.column))
             head = head.next
-        return indexes
 
 class Queen:
-    def __init__(self,no_of_queen):
-        self.no_of_queen = no_of_queen
-        if self.no_of_queen < 4:
-            print("Enter The Number of Queen Greater Than Three!")
-            return     
+    def __init__(self,n=0):
+        self.no_of_queen = n      
 
     def addQueen(self):
         if s.isEmpty():
-           return s.push(1,1)
+            s.push(1,1)
+            s.show()
         elif s.head.row < self.no_of_queen:
             s.push(s.head.row+1,1)
             self.check_position()
-        else:
-            pass
-            # print("Exceeded The Value")
+            s.show()
+
+      
 
     def check_position(self):
         head = s.head.next
@@ -60,16 +59,36 @@ class Queen:
             s.pop()       
 
 s = Stack()
-q = Queen(40)
-q.addQueen()
-q.addQueen()
-q.addQueen()
-q.addQueen()
+q = Queen()
 
 
-@app.route("/")
-def table():
-    return render_template("index.html",no_of_queen = q.no_of_queen,indexes = s.show())
+@app.route('/')
+def index():  
+    return render_template("index.html")
+
+@app.route("/g", methods = ['POST','GET'])
+def game():
+    if request.method == 'POST':        
+        numb = request.form["number"]
+        
+        if numb != '' and int(numb) > 3:
+            q.no_of_queen = int(numb)
+            s.head = None
+            s.indexes.clear()
+    return render_template("game.html", no_of_queen = q.no_of_queen, indexes = s.indexes)
+
+@app.route("/add", methods = ['GET','POST'])
+def add():
+    q.addQueen()
+    return render_template("game.html", no_of_queen = q.no_of_queen, indexes = s.indexes)
+
+@app.route("/reset", methods = ['GET','POST'])
+def reset():
+    s.head = None
+    s.indexes.clear()
+    return render_template("game.html", no_of_queen = q.no_of_queen, indexes = s.indexes) 
+
+    
 
 if __name__ == '__main__':
     app.run(debug =True)

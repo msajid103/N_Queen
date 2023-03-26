@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <section class="try">
+        <div class="container">
+            <div class="form">
+                <h1>Enter No. Of Queen</h1>
+                <form action="/g" method="post">
+                    <div class="inpt">
+                        <input type="number" name="number" placeholder="Enter No> 3">
+                        <button type="submit"><i class="fas form-btn btn fa-chevron-right"></i></button>
+                    </div>
+                </form>
+                <div>
+                    <span> 🐱‍🚀= {{no_of_queen}}</span>
+                    <div class="form-button">
+                    <form action="/add" method="post">
+                        <button class="btn about-btn add" name='button' type="submit">Add</button>
+                    </form>
+                    <form action="/reset" method="post">
+                        <button class="btn about-btn reset" name='button' type="submit">Reset</button>
+                    </form>
+                </div>
+
+                </div>
+
+            </div>
+
+            <div class="table_container flex">
+
+                <table>
+                    {%for ro in range(1,no_of_queen+1)%}
+                    <tr>
+                        {%for co in range(1,no_of_queen+1)%}
+                        {%if (ro,co) in indexes%}
+                        <td class="cl">🐱‍🚀</td>
+                        {% else %}
+                        <td>🟥</td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>
