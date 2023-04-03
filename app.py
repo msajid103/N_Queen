@@ -75,11 +75,15 @@ def game():
             q.no_of_queen = int(numb)
             s.head = None
             s.indexes.clear()
+        else:
+            return render_template("game.html", no_of_queen = q.no_of_queen,err = True, indexes = s.indexes)            
     return render_template("game.html", no_of_queen = q.no_of_queen, indexes = s.indexes)
 
 @app.route("/add", methods = ['GET','POST'])
 def add():
     q.addQueen()
+    if s.head.row >= q.no_of_queen:
+        return render_template("game.html", no_of_queen = q.no_of_queen,tr = True ,indexes = s.indexes)      
     return render_template("game.html", no_of_queen = q.no_of_queen, indexes = s.indexes)
 
 @app.route("/reset", methods = ['GET','POST'])

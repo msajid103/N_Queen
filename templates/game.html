@@ -21,15 +21,24 @@
                     </div>
                 </form>
                 <div>
-                    <span> 🐱‍🚀= {{no_of_queen}}</span>
+                    <span> 🐱‍🚀= {{no_of_queen-(indexes|length)}}</span>
                     <div class="form-button">
-                    <form action="/add" method="post">
-                        <button class="btn about-btn add" name='button' type="submit">Add</button>
-                    </form>
-                    <form action="/reset" method="post">
-                        <button class="btn about-btn reset" name='button' type="submit">Reset</button>
-                    </form>
-                </div>
+                        <form action="/add" method="post">
+                            <button class="btn about-btn add" name='button' type="submit">Add</button>
+                        </form>
+                        <form action="/reset" method="post">
+                            <button class="btn about-btn reset" name='button' type="submit">Reset</button>
+                        </form>
+
+                    </div>
+                    <div>
+                        {% if tr %}
+                        <h1>No More Queen Will be added!</h1>
+                        {% endif %}
+                        {% if err %}
+                        <h1>Enter correct No.!</h1>
+                        {% endif %}
+                    </div>
 
                 </div>
 
