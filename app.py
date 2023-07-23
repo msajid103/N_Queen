@@ -1,4 +1,5 @@
 from flask import Flask,render_template, request, redirect
+
 app = Flask(__name__)
 class Node:
     def __init__(self,row,column):
@@ -23,7 +24,7 @@ class Stack:
         if self.head == None:
             return True
         return False
-    def show(self):
+    def append_to_list(self):
         head = self.head
         self.indexes.clear()
         while head != None:
@@ -37,11 +38,11 @@ class Queen:
     def addQueen(self):
         if s.isEmpty():
             s.push(1,1)
-            s.show()
+            s.append_to_list()
         elif s.head.row < self.no_of_queen:
             s.push(s.head.row+1,1)
             self.check_position()
-            s.show()
+            s.append_to_list()
 
       
 
@@ -61,7 +62,7 @@ class Queen:
 s = Stack()
 q = Queen()
 
-
+# FLASk FRAME WORK
 @app.route('/')
 def index():  
     return render_template("index.html")
@@ -95,4 +96,4 @@ def reset():
     
 
 if __name__ == '__main__':
-    app.run(debug =True)
+    app.run(debug =False)
